@@ -5,14 +5,14 @@ import PlayButton from "./Components/PlayButton"
 
 const ChannelRack = () => {
   return (
-    <div className="bg-neutral-500 h-screen">
-      <div className="p-3 flex justify-center gap-4">
+    <div className="bg-neutral-700 p-10 rounded-lg">
+      <div className="flex justify-center gap-4">
         <PlayButton />
         <BPMButton/>
         <BarsCount />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Pattern />
       </div>
     </div>

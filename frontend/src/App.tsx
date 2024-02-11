@@ -4,7 +4,7 @@ function App() {
 
 
   return (
-      <div className="bg-black">
+      <div className="h-screen flex justify-center bg-neutral-900 overflow-hidden">
         <div className="flex justify-center items-center w-auto h-auto">
           <ChannelRack />
         </div>

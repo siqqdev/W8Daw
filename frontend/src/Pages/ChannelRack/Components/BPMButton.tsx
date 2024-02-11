@@ -7,14 +7,12 @@ const dispatch = useAppDispatch()
 const BPM = useAppSelector(selectedBPM)
 
   return (
-    <div className='border rounded-lg flex justify-center items-center text-center w-auto'>
         <input 
         type="number" 
         value={BPM.toString()}
         onChange={e => dispatch(setBPM(parseInt(e.target.value)))}
-        className='w-auto'
+        className='rounded-md bg-neutral-500 text-white text-center'
         />
-    </div>
   )
 }
 

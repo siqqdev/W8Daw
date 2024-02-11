@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { useAppSelector } from '../../../Store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../Store/hooks'
 import { selectedBPM, selectedBars } from '../../../Store/settingsSlice'
-import { currentArrangement } from '../../../Store/playSlice'
+import { currentArrangement, currentBeat, setCurrentBeat } from '../../../Store/playSlice'
 import {Howl} from 'howler'
+import { PlayIcon } from '@heroicons/react/24/solid'
 
 const PlayButton = () => {
 
@@ -12,12 +13,12 @@ const BPM = useAppSelector(selectedBPM)
 const BPMInterval = 60000 / BPM / 4
 const bars = useAppSelector(selectedBars)
 const arrangement = useAppSelector(currentArrangement)
+const currentIndex = useAppSelector(currentBeat)
+const dispatch = useAppDispatch()
 
 const handlePlayButton = () => {
-    if (isPlaying) {
-        setIsPlaying(false);
-    } else {
-        let i = 0;
+    if (!isPlaying) {
+        let i = currentIndex;
         const playNextSound = () => {
             if (i < bars * 2) {
                 const items = arrangement.filter((sound) => sound.index === i);
@@ -27,15 +28,19 @@ const handlePlayButton = () => {
                     });
                     newSound.play();
                 });
-                console.log('playing:', i);
+                // console.log('playing:', i);
                 i++;
+                dispatch(setCurrentBeat(i))
                 setTimeout(playNextSound, BPMInterval);
             } else {
                 i = 0
+                dispatch(setCurrentBeat(i))
                 playNextSound()
             }
         };
         playNextSound();
+    } else {
+        setIsPlaying(false)
     }
 };
 
@@ -44,8 +49,8 @@ const handlePlayButton = () => {
 
 
   return (
-    <button className='border p-2' onClick={handlePlayButton}>
-        Play
+    <button onClick={handlePlayButton}>
+        <PlayIcon className='w-12 h-12' color='gray'/>
     </button>
   )
 }
