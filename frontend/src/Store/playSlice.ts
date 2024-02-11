@@ -26,11 +26,14 @@ const playSlice = createSlice({
         },
         setArrangementArray(state, action: PayloadAction<ArrangementType>) {
             state.arrangement = [...state.arrangement, action.payload];
+        },
+        removeArrangementItem(state, action: PayloadAction<number>) {
+            state.arrangement = state.arrangement.filter(item => item.index !== action.payload);
         }
     }
 });
 
-export const { setCurrentBeat, setArrangementArray } = playSlice.actions;
+export const { setCurrentBeat, setArrangementArray,removeArrangementItem } = playSlice.actions;
 
 export const currentBeat = (state: RootState) => state.play.current;
 export const currentArrangement = (state: RootState) => state.play.arrangement

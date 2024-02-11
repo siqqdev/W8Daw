@@ -1,5 +1,7 @@
+import AddSoundButton from "./Components/AddSoundButton"
 import BarsCount from "./Components/BarsCount"
 import BPMButton from "./Components/BPMButton"
+import ClearAllButoon from "./Components/ClearAllButoon"
 import Pattern from "./Components/Pattern"
 import PlayButton from "./Components/PlayButton"
 
@@ -10,9 +12,11 @@ const ChannelRack = () => {
         <PlayButton />
         <BPMButton/>
         <BarsCount />
+        <ClearAllButoon />
+        <AddSoundButton />
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10 flex justify-center">
         <Pattern />
       </div>
     </div>

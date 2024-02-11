@@ -14,7 +14,6 @@ const handleBarsChange = (e: ChangeEvent<HTMLSelectElement>) => {
   return (
     <select name="bars" id="bars" value={bars} onChange={e => handleBarsChange(e)} 
     className="rounded-lg p-2 bg-neutral-500 text-white text-center">
-        <option value="4">4</option>
         <option value="8">8</option>
         <option value="16">16</option>
         <option value="32">32</option>
