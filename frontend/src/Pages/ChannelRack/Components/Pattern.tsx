@@ -1,4 +1,4 @@
-import { useState } from "react"
+import {  useState } from "react"
 import { useAppSelector } from "../../../Store/hooks"
 import { selectedBars, selectedSoundsArray } from "../../../Store/settingsSlice"
 import Beats from "./Beats"
@@ -9,6 +9,7 @@ const Pattern = () => {
   const soundsArray = useAppSelector(selectedSoundsArray);
 
   const [hoveredSound, setHoveredSound] = useState<string | null>(null);
+
 
   return (
     <div className="flex justify-start">

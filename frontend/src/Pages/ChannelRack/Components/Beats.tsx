@@ -23,6 +23,8 @@ const Beats: React.FC<{ count: number; soundName: string; soundPath: string }> =
         setBeats(newBeats);
     }, [count, arrangement, soundName, soundPath]);
 
+    
+
     const handleBeatClick = (i: number, sound: string, soundPath: string) => {
         console.log('Before:',arrangement);
         

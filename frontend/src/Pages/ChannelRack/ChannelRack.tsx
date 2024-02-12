@@ -6,6 +6,9 @@ import Pattern from "./Components/Pattern"
 import PlayButton from "./Components/PlayButton"
 
 const ChannelRack = () => {
+
+
+
   return (
     <div className="bg-neutral-700 p-10 rounded-lg">
       <div className="flex justify-center gap-4">
